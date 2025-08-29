@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smashed — VRChat Nightlife</title>
+  <meta name="description" content="Smashed — a VRChat drinking world & community. Explore the Event Hall, Card Room, Mixed Games Room (Beerpong, Spin the Wheel, Pool, Arcade), 1v1 games, VIP & VIP+ lounges. Join events and support on Patreon.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Smashed — VRChat Nightlife" />
+  <meta property="og:description" content="Explore SmashedHQ: events, games, VIP lounges, and community nights in VRChat." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.smashedhq.com" />
+  <meta property="og:image" content="https://picsum.photos/1200/630" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="Smashed" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SmashedHQ — VRChat Nightlife" />
+  <meta name="twitter:description" content="Explore SmashedHQ: events, games, VIP lounges, and community nights in VRChat." />
+  <meta name="twitter:image" content="https://picsum.photos/1200/630" />
+  <meta name="twitter:site" content="@smashedhq" />
+
+  <!-- Misc -->
+  <meta name="theme-color" content="#e11d48" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.smashedhq.com/" />
+  <link rel="icon" type="image/png" href="assets/logos/muggzie.ico" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-black text-gray-200">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center p-6 border-b border-gray-800 sticky top-0 bg-black/60 backdrop-blur-sm z-50">
+    <div class="flex items-center space-x-4">
+      <img src="assets/logos/muggzie.png" alt="Muggize" class="w-8 h-8 no-modal">
+      <div class="logo text-2xl font-bold tracking-widest"><a href="#">SMASHED</a></div>
+    </div>
+    <nav class="space-x-6 hidden md:flex text-sm">
+      <a href="#about" class="hover:text-pink-400">About</a>
+      <a href="#explore" class="hover:text-pink-400">Explore</a>
+      <a href="#events" class="hover:text-pink-400">Events</a>
+      <a href="#patreon" class="hover:text-pink-400">Patreon</a>
+      <a href="#media" class="hover:text-pink-400">Gallery</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="hero" class="relative h-[92vh] grid place-items-center text-center px-6 overflow-hidden">
+    <img src="assets/images/lobby.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-85 select-none pointer-events-none" style="filter: blur(5px);" draggable="false">
+    <div class="relative z-10">
+      <h1 class="bg-gradient-to-r from-[#ff3300] via-[#ff6600] via-[#ff9900] to-[#ffcc33] bg-clip-text text-transparent text-6xl md:text-8xl font-bold mb-4 [text-shadow:2px_2px_8px_rgba(255,100,0,.7)]">
+        SMASHED
+      </h1>
+      <p class="text-xl md:text-2xl text-purple-400 mb-2">The Drunkest Place in the Metaverse</p>
+      <p class="text-purple-400 text-lg md:text-xl">Trust the vibes. Drink responsibly.</p>
+      <div class="mt-6 flex gap-3 justify-center flex-wrap text-sm">
+        <a href="https://vrchat.com/home/launch?worldId=wrld_4e83f3d8-66b5-4d46-8039-49025ae939b3" class="px-4 py-2 rounded-lg border border-pink-500 text-white hover:bg-purple-500/20">Enter World</a>
+        <a href="https://discord.gg/gr4dhmz6kQ" class="px-4 py-2 rounded-lg border border-rose-400 text-rose-300 hover:bg-rose-400/10">Join Discord</a>
+        <a href="#patreon" class="px-4 py-2 rounded-lg border border-fuchsia-400 text-fuchsia-300 hover:bg-fuchsia-400/10">Support on Patreon</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="relative py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <img src="assets/images/lobby.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-85 select-none pointer-events-none" style="filter: blur(5px);" draggable="false">
+    <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-4xl font-bold mb-6">About Smashed</h2>
+        <p class="text-gray-200 mb-4">SmashedHQ is a VRChat nightlife community built for neon nights, social chaos, and endless games. From the <strong>Event Hall</strong> with its DJ stage and private rooms to the <strong>Mixed Games Room</strong> (Beerpong, Spin the Wheel, Pool, and a full <strong>Arcade</strong>), there’s always something to do.</p>
+        <p class="text-gray-200">Challenge your friends in <strong>1v1</strong> — Chess, Checkers, Connect 4, Buckshot Roulette — or relax upstairs in <strong>VIP</strong> and <strong>VIP+</strong> lounges. Join the group, catch events, and help fuel the party on Patreon.</p>
+        <div class="mt-6 grid sm:grid-cols-3 gap-3 text-xs text-gray-300">
+          <div class="border border-gray-800 rounded-lg p-3 bg-black/40">ACCESS → VRChat Group, Discord, Patreon</div>
+          <div class="border border-gray-800 rounded-lg p-3 bg-black/40">MEDIA → Screenshots & Clips</div>
+          <div class="border border-gray-800 rounded-lg p-3 bg-black/40">RULES → 18+ • Be cool • Drink responsibly</div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <img class="h-40 object-cover rounded-xl border border-gray-800 glow-image" src="assets/images/about/beerpongchamps.png" alt="Beer pong champs" />
+        <img class="h-40 object-cover rounded-xl border border-gray-800 glow-image" src="assets/images/about/cardtablegroup.png" alt="Card table group" />
+        <img class="h-40 object-cover rounded-xl border border-gray-800 glow-image" src="assets/images/about/beerpong.png" alt="Beer pong" />
+        <img class="h-40 object-cover rounded-xl border border-gray-800 glow-image" src="assets/images/about/fenic.png" alt="Fenic" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore -->
+  <section id="explore" class="relative py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
+    <img src="assets/images/lobby.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-85 select-none pointer-events-none" style="filter: blur(5px);" draggable="false">
+    <div class="relative z-10 max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-3">Explore the World</h2>
+      <p class="text-gray-300 mb-8">Six zones. One chaotic nightclub simulation.</p>
+
+      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <!-- Event Hall -->
+        <article class="border border-gray-800 rounded-2xl overflow-hidden bg-black/60">
+          <div class="card-slider h-40 bg-cover bg-center"
+               aria-label="Event Hall"
+               data-images='["assets/images/eventhall/1.png","assets/images/eventhall/2.png","assets/images/eventhall/3.png","assets/images/eventhall/4.png"]'>
+            <button class="ctrl prev" aria-label="Previous image">‹</button>
+            <button class="ctrl next" aria-label="Next image">›</button>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">Event Hall</h3>
+            <p class="text-gray-300 text-sm">Massive card table, private rooms for games, and a live DJ stage. Command center of the night.</p>
+            <div class="mt-2 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Private Rooms</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">DJ Stage</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card Room -->
+        <article class="border border-gray-800 rounded-2xl overflow-hidden bg-black/60">
+          <div class="card-slider h-40 bg-cover bg-center"
+               aria-label="Card Room"
+               data-images='["assets/images/cardroom/1.png","assets/images/cardroom/2.png","assets/images/cardroom/3.png"]'>
+            <button class="ctrl prev">‹</button>
+            <button class="ctrl next">›</button>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">Card Room</h3>
+            <p class="text-gray-300 text-sm">Shuffle up — classic table vibes, custom decks, friendly rivalries.</p>
+          </div>
+        </article>
+
+        <!-- Mixed Games Room -->
+        <article class="border border-gray-800 rounded-2xl overflow-hidden bg-black/60">
+          <div class="card-slider h-40 bg-cover bg-center"
+               aria-label="Mixed Games Room"
+               data-images='["assets/images/mixedgames/beerpong.png","assets/images/mixedgames/spinthewheel.png","assets/images/mixedgames/pool.png","assets/images/mixedgames/arcade.png"]'>
+            <button class="ctrl prev">‹</button>
+            <button class="ctrl next">›</button>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">Mixed Games Room</h3>
+            <p class="text-gray-300 text-sm">Beerpong, Spin the Wheel, Pool Tables, and a full Arcade — bounce between games at will.</p>
+            <div class="mt-2 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Beerpong</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Spin the Wheel</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Pool</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Arcade</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 1v1 Games -->
+        <article class="border border-gray-800 rounded-2xl overflow-hidden bg-black/60">
+          <div class="card-slider h-40 bg-cover bg-center"
+               aria-label="1v1 Games"
+               data-images='["assets/images/1v1/checkers.png","assets/images/1v1/Reversi.png","assets/images/1v1/chess.png","assets/images/1v1/c4.png","assets/images/1v1/buckshot.png","assets/images/1v1/pool.png","assets/images/1v1/beerpong.png","assets/images/1v1/shuffleboard.png"]'>
+            <button class="ctrl prev">‹</button>
+            <button class="ctrl next">›</button>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">1v1 Games</h3>
+            <p class="text-gray-300 text-sm">Head-to-head: Checkers, Reversi, Chess, Connect 4, Buckshot Roulette.</p>
+            <div class="mt-2 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Checkers</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Reversi</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Chess</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Connect 4</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Buckshot</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Pool</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Beerpong</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Shuffleboard</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Board Games -->
+        <article class="border border-gray-800 rounded-2xl overflow-hidden bg-black/60">
+          <div class="card-slider h-40 bg-cover bg-center"
+               aria-label="Board Games"
+               data-images='["assets/images/boardgame/liverkiller.png","assets/images/boardgame/neverhaveiever.png"]'>
+            <button class="ctrl prev">‹</button>
+            <button class="ctrl next">›</button>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">Board Games</h3>
+            <p class="text-gray-300 text-sm">Fun in groups: Liverkiller & Never have i ever.</p>
+            <div class="mt-2 flex flex-wrap gap-2 text-xs">
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Liver Killer</span>
+              <span class="px-2 py-1 border border-gray-800 rounded-full">Never have i ever</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- VIP -->
+        <article class="border border-gray-800 rounded-2xl overflow-hidden bg-black/60">
+          <div class="card-slider h-40 bg-cover bg-center"
+               aria-label="VIP Lounge"
+               data-images='["assets/images/VIP/1.png","assets/images/VIP/2.png","assets/images/VIP/3.png"]'>
+            <button class="ctrl prev">‹</button>
+            <button class="ctrl next">›</button>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">VIP Lounge</h3>
+            <p class="text-gray-300 text-sm">Exclusive chill zone. Premium seating, great view, best conversations.</p>
+          </div>
+        </article>
+
+        <!-- VIP+ -->
+        <article class="border border-gray-800 rounded-2xl overflow-hidden bg-black/60">
+          <div class="card-slider h-40 bg-cover bg-center"
+               aria-label="VIP+ Private Lounge"
+               data-images='["assets/images/vipplus/1.png","assets/images/vipplus/2.png"]'>
+            <button class="ctrl prev">‹</button>
+            <button class="ctrl next">›</button>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold">VIP+ Private Lounge</h3>
+            <p class="text-gray-300 text-sm">Top-tier access. Ultimate flex. Private Games.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events -->
+  <section id="events" class="relative py-20 px-6 md:px-12 lg:px-20 border-y rounded-xl z-10 border-2 border-grey-800 overflow-hidden">
+    <img src="assets/images/lobby.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-85 select-none pointer-events-none" style="filter: blur(5px); z-index:-1;" draggable="false">
+
+    <div class="relative z-10 max-w-4xl mx-auto space-y-8">
+      <div id="event-countdown" class="p-6 border border-gray-800 rounded-xl bg-black/50 text-center">
+        <div class="text-sm text-gray-400">Next Smashed Official Instance</div>
+        <div class="text-2xl font-semibold mb-1" id="ec-label">Loading…</div>
+        <div class="text-xl text-ppink-400" id="ec-eta"></div>
+        <div class="text-sm text-red-400">End Time May Vary Depending On attendance</div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6 text-sm">
+        <div class="p-4 border border-gray-800 rounded-xl bg-black/40">
+          <h3 class="text-lg font-semibold mb-2 text-orange-400">How to Join</h3>
+          <p class="text-gray-300 mb-3">
+            Every Saturday at <span id="local-event-time" style="font-weight:bold">21:00 CET</span> we open the official Smashed instance. Join in via our VRChat group for guaranteed slots and party updates.
+          </p>
+          <a href="https://vrc.group/SMASH.5220" target="_blank"
+             class="inline-block px-3 py-2 border border-pink-500 text-pink-300 rounded-lg hover:bg-pink-500/10">
+            Join VRChat Group
+          </a>
+        </div>
+
+        <div class="p-4 border border-gray-800 rounded-xl bg-black/40">
+          <h3 class="text-lg font-semibold mb-2 text-orange-400">Stay Connected</h3>
+          <p class="text-gray-300 mb-3">
+            Don’t miss announcements, afterparty pics, and community shenanigans. Hop into the Discord and be part of the crew.
+          </p>
+          <a href="https://discord.gg/gr4dhmz6kQ" target="_blank"
+             class="inline-block px-3 py-2 border border-rose-400 text-rose-300 rounded-lg hover:bg-rose-400/10">
+            Join Discord
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patreon -->
+  <section id="patreon" class="relative py-20 px-6 md:px-12 lg:px-20 border-y rounded-xl z-10 border-2 border-grey-800 overflow-hidden">
+    <img src="assets/images/lobby.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-85 select-none pointer-events-none" style="filter: blur(5px);" draggable="false">
+    <div class="relative z-10 max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-3">Support on Patreon</h2>
+      <p class="text-gray-300 mb-8">Keep the lights neon. Perks scale with your tier.</p>
+      <div class="grid md:grid-cols-3 gap-4 text-sm">
+        <div class="p-5 border border-gray-800 rounded-2xl bg-black/60">
+          <h3 class="text-xl mb-2">🍺 Supporter</h3>
+          <p class="text-gray-300 mb-4">Hello there, Smashed is a world run by its community. It was first created to fill the needs of good cards in vrchat, but later turned into a community of amazing people.</p>
+          <p class="text-gray-300 mb-4">We are where we are today thanks to all of the support we gotten and all help we gotten along the way. We are for ever grateful!</p>
+          <p class="text-gray-300 mb-4">Perks listed below each tier</p>
+          <a class="inline-block px-3 py-2 border border-gray-700 rounded-lg hover:bg-white/5" href="https://www.patreon.com/smashedhq">Become a Supporter</a>
+        </div>
+
+        <div class="p-5 border border-pink-500 rounded-2xl bg-black/60 shadow-[0_0_20px_rgba(244,114,182,.25)]">
+          <h3 class="text-xl mb-4">🍷 VIP</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-1">
+            <li>Name on the VIP Wall.</li>
+            <li>VIP icon above your head</li>
+            <li>Self Access to VIP Room.</li>
+            <li>Access to the latest games in the VIP area before they added to the normal part.</li>
+            <li>Access to 2 extra stickys that only VIP's can see</li>
+            <li>Access to 1 extra pickupable that VIP's can see.</li>
+            <li>Access to player teleport menu, which means you can teleport without having to search for them!</li>
+            <li>Join sound when you enter the world</li>
+            <li>Notification message when enter the world</li>
+            <li>Access to the VIP channels on discord.</li>
+          </ul>
+        </div>
+
+        <div class="p-5 border border-fuchsia-500 rounded-2xl bg-black/60 shadow-[0_0_20px_rgba(217,70,239,.25)]">
+          <h3 class="text-xl mb-4">🍾 VIP+</h3>
+          <ul class="list-disc list-inside text-gray-300 space-y-1">
+            <li>All VIP perks</li>
+            <li>Access to our group management system (https://vrclink.com)</li>
+            <li>A picture of your choice of vrchat on our rotating VIP+ billboards. (1080x1920).</li>
+            <li>Access to VIP+ icon above your head.</li>
+            <li>Access to object so you can fly around on the map.</li>
+            <li>Access to open up the VIP room for everyone.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="media" class="relative py-20 px-6 md:px-12 lg:px-20 border-y rounded-xl z-10 border-2 border-grey-800 overflow-hidden">
+    <img src="assets/images/lobby.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-85 select-none pointer-events-none" style="filter: blur(5px);" draggable="false">
+    <div class="relative z-10 max-w-6xl mx-auto">
+      <h2 class="text-4xl font-bold mb-3">Comunity photos</h2>
+      <p class="text-gray-300 mb-6">Curated photos from the community</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <img class="h-40 object-cover rounded-xl border border-gray-800 glow-image" src="assets/images/gallery/group1.png" alt="Group 1">
+        <img class="h-40 object-cover rounded-xl border border-gray-800 glow-image" src="assets/images/gallery/group2.png" alt="Group 2">
+        <img class="h-40 object-cover rounded-xl border border-gray-800 glow-image" src="assets/images/gallery/pjstan.png" alt="BJ Stain">
+        <img class="h-40 object-cover rounded-xl border border-gray-800 glow-image" src="assets/images/gallery/webbxgalaxy.png" alt="WebbMD & Galaxy">
+        <img class="h-40 object-cover rounded-xl border border-gray-800 glow-image" src="assets/images/gallery/group3.png" alt="Group 3">
+        <img class="h-40 object-cover rounded-xl border border-gray-800 glow-image" src="assets/images/gallery/typhoonwes.png" alt="Typhoonwes">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="relative bg-black/60 py-8 px-6 md:px-12 lg:px-20 text-center border-y rounded-xl z-10 border-2 border-grey-800 overflow-hidden">
+    <div class="relative z-10">
+      <p class="text-xs text-gray-300">© SmashedHQ — 18+ community • Drink responsibly</p>
+      <div class="mt-4 flex gap-3 justify-center">
+        <a href="https://vrc.group/SMASH.5220" class="w-10 h-10 grid place-items-center rounded-lg hover:bg-white/5">
+          <img src="assets/logos/vrchat.png" alt="VRChat" class="w-8 h-8">
+        </a>
+        <a href="https://discord.gg/gr4dhmz6kQ" class="w-10 h-10 grid place-items-center rounded-lg hover:bg-white/5">
+          <img src="assets/logos/discord.png" alt="Discord" class="w-8 h-8">
+        </a>
+        <a href="https://www.patreon.com/smashedhq" class="w-10 h-10 grid place-items-center rounded-lg hover:bg-white/5">
+          <img src="assets/logos/patreon.png" alt="Patreon" class="w-8 h-8">
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-3 right-4 flex items-center gap-2 text-m text-gray-400 opacity-80 hover:opacity-100">
+      <span>Powered by 
+        <a href="https://zentaka.com" target="_blank" rel="noopener" class="font-semibold hover:text-pink-400">Zentaka</a>
+      </span>
+      <img src="assets/logos/zentaka.png" alt="Zentaka" class="no-modal w-5 h-5 select-none">
+    </div>
+  </footer>
+
+  <!-- Image Modal -->
+  <div id="img-modal" class="modal fixed inset-0 bg-black/80 items-center justify-center z-50 p-6">
+    <div class="max-w-4xl w-full bg-black/80 border border-gray-800 rounded-2xl p-4 relative grid gap-3">
+      <button id="img-modal-close" class="absolute top-3 right-3 text-2xl leading-none text-white">✕</button>
+      <button class="mnav mprev" id="img-prev" aria-label="Previous image">‹</button>
+      <button class="mnav mnext" id="img-next" aria-label="Next image">›</button>
+      <img id="img-modal-image" src="" alt="" class="max-h-[75vh] w-full object-contain rounded-lg" />
+      <div id="img-modal-caption" class="text-center text-gray-300 text-sm"></div>
+    </div>
+  </div>
+
+  <!-- JS -->
+  <script defer src="app.js"></script>
+</body>
+</html>

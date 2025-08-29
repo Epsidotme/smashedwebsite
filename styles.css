@@ -1,0 +1,61 @@
+@font-face{font-family:'Hacked';src:local('Hacked'), url('assets/fonts/Hacked-KerX.ttf') format('truetype');font-display:swap}
+    @font-face{font-family:'ShareTechMono';src:url('assets/fonts/ShareTechMono-Regular.ttf') format('truetype');font-display:swap}
+    h1,h2,h3,.logo{font-family:'Hacked',sans-serif}
+    body{font-family:'ShareTechMono',monospace;background:#000;color:#fff;position:relative;overflow-x:hidden}
+    .glow-image{transition:transform .3s ease, box-shadow .3s ease;cursor:pointer}
+    .glow-image:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(236,72,153,.7)}
+    .modal{display:none}
+    .modal.show{display:flex}
+	
+	.gradient-text {
+  background: linear-gradient(
+    180deg,
+    #ff4500 0%,   
+    #ff8c00 40%,  
+    #ffa500 70%,  
+    #ffd580 100%  
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+
+	
+	/* Card slider controls */
+.card-slider { position: relative; cursor: pointer; }
+.card-slider .ctrl {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.45); color: #fff; border-radius: 9999px;
+  display: grid; place-items: center; font-size: 16px; line-height: 1;
+  cursor: pointer; user-select: none;
+}
+.card-slider .ctrl:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.4); }
+.card-slider .prev { left: 8px; }
+.card-slider .next { right: 8px; }
+.card-slider .expand {
+  position: absolute; right: 8px; bottom: 8px;
+  width: 28px; height: 28px; border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.45); color: #fff; border-radius: 8px;
+  font-size: 14px; display: grid; place-items: center;
+}
+
+/* Modal nav buttons */
+.modal .mnav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.55); color: #fff; border-radius: 9999px;
+  display: grid; place-items: center; font-size: 18px; cursor: pointer;
+}
+.modal .mnav:hover { background: rgba(255,255,255,.12); }
+.modal .mprev { left: 12px; }
+.modal .mnext { right: 12px; }
+
+/* Hide prev/next arrows when modal has .hide-nav */
+#img-modal.hide-nav .mnav { display: none; }
+
+  #event-countdown { letter-spacing:.02em }
+  #ec-label { color:#e5e7eb }        /* text-gray-200 */
+  #ec-eta   { color:#f472b6 }        /* text-pink-400 */
