@@ -255,13 +255,17 @@
     modal.addEventListener('click', (e)=>{ if(e.target === modal) closeSingle(); });
     window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeSingle(); });
 
-    // All <img> (skip links & .no-modal)
-    document.querySelectorAll('img').forEach(img => {
-      if (img.closest('a')) return;
-      if (img.classList.contains('no-modal')) return;
-      img.classList.add('cursor-zoom-in');
-      img.addEventListener('click', ()=> openModal(img.src, img.alt));
-    });
+    // All <img> (skip links, no-modal, and the MODAL image itself)
+document.querySelectorAll('img').forEach(img => {
+  if (img.closest('a')) return;                 // skip linked icons
+  if (img.classList.contains('no-modal')) return; // skip logo etc
+  if (img.id === 'img-modal-image') return;     // <-- critical: don't bind modal image
+  img.classList.add('cursor-zoom-in');
+  img.addEventListener('click', () => openModal(img.src, img.alt));
+});
+
+document.getElementById('img-modal-image')
+  .addEventListener('click', e => e.stopPropagation());
 
     // Background-image nodes (skip card sliders)
     const bgNodes = Array.from(document.querySelectorAll('[style*="background-image"], .bg-cover'));
