@@ -98,6 +98,15 @@
   0%,100% { opacity: 1; }
   50%     { opacity: .3; }
 }
+/* Use the same fonts for live UI */
+.live-badge, .live-toast .dot {
+  font-family: 'Hacked', sans-serif; /* matches headers */
+  letter-spacing: 0.05em;
+}
+
+.live-toast .txt {
+  font-family: 'ShareTechMono', monospace; /* matches body text */
+}
 
 /* Toast (top-left under header) */
 .live-toast {
