@@ -59,3 +59,64 @@
   #event-countdown { letter-spacing:.02em }
   #ec-label { color:#e5e7eb }        /* text-gray-200 */
   #ec-eta   { color:#f472b6 }        /* text-pink-400 */
+
+/* LIVE state styling for the countdown card */
+#event-countdown.live {
+  border-color: #f43f5e;                 /* rose-500 */
+  box-shadow: 0 0 24px rgba(244,63,94,.35);
+  background: linear-gradient(180deg, rgba(244,63,94,.15), rgba(0,0,0,.4));
+  position: relative;
+  animation: ecPulse 1.5s ease-in-out infinite;
+}
+
+#event-countdown .live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  background: linear-gradient(90deg,#ff2d55,#ff8a00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 12px rgba(255,60,80,.35);
+}
+
+#event-countdown .live-dot {
+  width: .75rem; height: .75rem; border-radius: 9999px;
+  background: #22c55e;                   /* green-500 */
+  box-shadow: 0 0 10px rgba(34,197,94,.9), 0 0 18px rgba(34,197,94,.5);
+  animation: dotBlink 1s infinite;
+}
+
+@keyframes ecPulse {
+  0%,100% { transform: translateZ(0) scale(1); }
+  50%     { transform: translateZ(0) scale(1.01); }
+}
+@keyframes dotBlink {
+  0%,100% { opacity: 1; }
+  50%     { opacity: .3; }
+}
+
+/* Toast (top-left under header) */
+.live-toast {
+  position: fixed;
+  top: 64px;               /* sits just under your sticky header */
+  left: 16px;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  padding: .6rem .8rem;
+  border-radius: .75rem;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.65);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35), 0 0 24px rgba(244,63,94,.25);
+  animation: toastIn .25s ease-out;
+}
+.live-toast .dot { width: .6rem; height: .6rem; border-radius: 9999px; background:#22c55e; box-shadow: 0 0 10px rgba(34,197,94,.9); animation: dotBlink 1s infinite; }
+.live-toast .txt { font-size: .9rem; }
+@keyframes toastIn { from { transform: translateY(-8px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }

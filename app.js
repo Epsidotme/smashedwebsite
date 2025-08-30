@@ -35,36 +35,48 @@
 
   const addDays = (date, days) => new Date(date.getTime() + days*86400000);
 
-  function nextWindow(now = new Date()) {
-    // Calendar day in Stockholm
-    const pNow = partsInTZ(now);
-    const midnightSE = zonedTimeToDate(pNow.year, pNow.month, pNow.day, 0, 0, 0);
+ function nextWindow(now = new Date()) {
+  // Calendar day in Stockholm
+  const pNow = partsInTZ(now);
+  const midnightSE = zonedTimeToDate(pNow.year, pNow.month, pNow.day, 0, 0, 0);
 
-    // Weekday IN Stockholm (avoid UTC off-by-one)
-    const dowName = new Intl.DateTimeFormat('en-GB', { timeZone: TZ, weekday: 'short' }).format(midnightSE);
-    const dow = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(dowName);
+  // Weekday name in Stockholm (0..6 mapping)
+  const dowName = new Intl.DateTimeFormat('en-GB', { timeZone: TZ, weekday: 'short' }).format(midnightSE);
+  const dow = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(dowName);
 
-    // This Saturday in Stockholm
-    const thisSatMid = addDays(midnightSE, (6 - dow + 7) % 7);
-    const pSat = partsInTZ(thisSatMid);
-    let start = zonedTimeToDate(pSat.year, pSat.month, pSat.day, START_H, 0, 0);
+  // This Saturday (Stockholm)
+  const thisSatMid = addDays(midnightSE, (6 - dow + 7) % 7);
+  const satP = partsInTZ(thisSatMid);
 
-    // If already past this start, move to next week
-    if (now >= start) {
-      const nextSatMid = addDays(thisSatMid, 7);
-      const pNext = partsInTZ(nextSatMid);
-      start = zonedTimeToDate(pNext.year, pNext.month, pNext.day, START_H, 0, 0);
-    }
+  // Start/End for THIS week
+  const startThis = zonedTimeToDate(satP.year, satP.month, satP.day, START_H, 0, 0);
 
-    // End = Sunday END_H (Stockholm) after that start
-    const sp = partsInTZ(start);
-    const sundayMid = zonedTimeToDate(sp.year, sp.month, sp.day, 0, 0, 0);
-    const sunday = addDays(sundayMid, 1);
-    const pSun = partsInTZ(sunday);
-    const end = zonedTimeToDate(pSun.year, pSun.month, pSun.day, END_H, 0, 0);
+  const sp = partsInTZ(startThis);
+  const sundayMid = zonedTimeToDate(sp.year, sp.month, sp.day, 0, 0, 0);
+  const sunday = addDays(sundayMid, 1);
+  const pSun = partsInTZ(sunday);
+  const endThis = zonedTimeToDate(pSun.year, pSun.month, pSun.day, END_H, 0, 0);
 
-    return { start, end };
+  // If we're already past THIS week's end, move to NEXT week
+  if (now >= endThis) {
+    const nextSatMid = addDays(thisSatMid, 7);
+    const pNext = partsInTZ(nextSatMid);
+    const startNext = zonedTimeToDate(pNext.year, pNext.month, pNext.day, START_H, 0, 0);
+
+    const spN = partsInTZ(startNext);
+    const sunMidN = zonedTimeToDate(spN.year, spN.month, spN.day, 0, 0, 0);
+    const sundayN = addDays(sunMidN, 1);
+    const pSunN = partsInTZ(sundayN);
+    const endNext = zonedTimeToDate(pSunN.year, pSunN.month, pSunN.day, END_H, 0, 0);
+
+    return { start: startNext, end: endNext };
   }
+
+  // Otherwise, we’re in THIS week (either before start or currently live)
+  return { start: startThis, end: endThis };
+}
+
+
 
   const fmtLocal = (dt) => dt.toLocaleString(undefined, {
     weekday: 'long',
@@ -123,6 +135,76 @@
 
   tick();
   setInterval(tick, 1000);
+  
+  // Helpers to show/hide toast
+function showLiveToast(start, end) {
+  const root = document.getElementById('live-toast-root');
+  if (!root) return;
+  if (root.firstChild) return; // already showing
+
+  const div = document.createElement('div');
+  div.className = 'live-toast';
+  div.innerHTML = `
+    <span class="dot"></span>
+    <div class="txt"><strong>Event is LIVE</strong> — ends ${fmtLocal(end)}</div>
+  `;
+  root.appendChild(div);
+}
+function hideLiveToast() {
+  const root = document.getElementById('live-toast-root');
+  if (!root || !root.firstChild) return;
+  root.removeChild(root.firstChild);
+}
+
+function tick() {
+  const now = new Date();
+  let { start, end } = nextWindow(now);
+
+  const card = document.getElementById('event-countdown');
+  const labelEl = document.getElementById('ec-label');
+  const etaEl   = document.getElementById('ec-eta');
+
+  if (!card || !labelEl || !etaEl) return;
+
+  if (now < start) {
+    // PRE-EVENT: normal countdown
+    card.classList.remove('live');
+    hideLiveToast();
+
+    labelEl.innerHTML = 'Next Feature Night';
+    etaEl.innerHTML =
+      `Starts <span class="text-white/90">${fmtLocal(start)}</span> — ` +
+      `Ends <span class="text-white/90">${fmtLocal(end)}</span><br>` +
+      `<span class="text-pink-400 text-2xl">${formatDHMS(start - now)}</span>`;
+  } else if (now >= start && now < end) {
+    // LIVE: loud mode
+    card.classList.add('live');
+    showLiveToast(start, end);
+
+    labelEl.innerHTML = `
+      <span class="live-badge">
+        <span class="live-dot"></span>
+        EVENT IS LIVE
+      </span>
+    `;
+    etaEl.innerHTML =
+      `Ends <span class="text-white/90">${fmtLocal(end)}</span><br>` +
+      `<span class="text-pink-400 text-2xl">Time remaining: ${formatDHMS(end - now)}</span>`;
+  } else {
+    // just past end → compute next and show normal countdown
+    card.classList.remove('live');
+    hideLiveToast();
+
+    const after = new Date(end.getTime() + 1000);
+    const nxt = nextWindow(after);
+    labelEl.innerHTML = 'Next Feature Night';
+    etaEl.innerHTML =
+      `Starts <span class="text-white/90">${fmtLocal(nxt.start)}</span> — ` +
+      `Ends <span class="text-white/90">${fmtLocal(nxt.end)}</span><br>` +
+      `<span class="text-pink-400 text-2xl">Countdown: ${formatDHMS(nxt.start - now)}</span>`;
+  }
+}
+
 })();
 
 /* ===========================
