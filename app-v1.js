@@ -387,3 +387,97 @@ document.getElementById('img-modal-image')
   if (closeBtn) closeBtn.addEventListener('click', function () { hide(); });
 })();
 })();
+
+/* ===========================
+   Smooth scrolling animation when clicking through the site
+=========================== */
+(() => {
+(function () {
+  // Capture ALL in-page anchors (exclude plain "#" and any opt-outs)
+  var ANCHOR_SELECTOR = 'a[href^="#"]:not([href="#"]):not([data-no-scroll])';
+  var DURATION_MS = 1000;
+
+  function getHeaderOffset() {
+    // tallest fixed/sticky header so content doesn't hide under it
+    var candidates = document.querySelectorAll('header, .site-header, .navbar, .topbar, nav');
+    var maxH = 0, i, el, cs, pos, h;
+    for (i = 0; i < candidates.length; i++) {
+      el = candidates[i];
+      cs = window.getComputedStyle ? window.getComputedStyle(el) : null;
+      pos = cs ? cs.position : '';
+      if (pos === 'fixed' || pos === 'sticky') {
+        h = el.offsetHeight || 0;
+        if (h > maxH) maxH = h;
+      }
+    }
+    return maxH;
+  }
+
+  function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
+
+  function smoothScrollToY(goalY, duration) {
+    var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) { window.scrollTo(0, goalY); return; }
+
+    var startY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var startTime = null;
+    function step(ts){
+      if (startTime === null) startTime = ts;
+      var p = (ts - startTime) / duration; if (p > 1) p = 1;
+      var y = startY + (goalY - startY) * easeOutCubic(p);
+      window.scrollTo(0, y);
+      if (p < 1) window.requestAnimationFrame(step);
+    }
+    window.requestAnimationFrame(step);
+  }
+
+  function scrollToTargetId(id) {
+    if (!id) return;
+    if (id.charAt(0) === '#') id = id.slice(1);
+    var target = document.getElementById(id);
+    if (!target) return;
+
+    var rect  = target.getBoundingClientRect();
+    var start = window.pageYOffset || document.documentElement.scrollTop || 0;
+    var goalY = rect.top + start - getHeaderOffset() - 12; // a little breathing room
+
+    smoothScrollToY(goalY, DURATION_MS);
+
+    // Update URL without instant jump
+    if (history && history.pushState) history.pushState(null, '', '#' + id);
+    else location.hash = id;
+
+    // a11y: focus target without jumping
+    try {
+      var prev = target.getAttribute('tabindex');
+      if (prev === null) target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+      if (prev === null) target.removeAttribute('tabindex');
+    } catch (e) {}
+  }
+
+  // Find nearest anchor from any click (handles icon/text inside <a>)
+  function closestAnchor(el){
+    while (el && el !== document.body) {
+      if (el.tagName && el.tagName.toLowerCase() === 'a' && el.matches(ANCHOR_SELECTOR)) return el;
+      el = el.parentNode;
+    }
+    return null;
+  }
+
+  function onDocClick(e){
+    var a = closestAnchor(e.target);
+    if (!a) return;
+    var href = a.getAttribute('href');
+    // Only handle pure in-page hashes like #about, #patreon, etc.
+    if (!href || href.charAt(0) !== '#') return;
+    // Only intercept if target exists
+    var id = href.slice(1);
+    if (!document.getElementById(id)) return;
+    e.preventDefault();
+    scrollToTargetId(href);
+  }
+
+  document.addEventListener('click', onDocClick);
+})();
+})();

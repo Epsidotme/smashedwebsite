@@ -42,7 +42,7 @@
   <header class="flex justify-between items-center p-6 border-b border-gray-800 sticky top-0 bg-black/60 backdrop-blur-sm z-50">
     <div class="flex items-center space-x-4">
       <img src="assets/logos/muggzie.png" alt="Muggize" class="w-8 h-8 no-modal">
-      <div class="logo text-2xl font-bold tracking-widest"><a href="#">SMASHED</a></div>
+      <div class="logo text-2xl font-bold tracking-widest"><a href="#hero">SMASHED</a></div>
     </div>
     <nav class="space-x-6 hidden md:flex text-sm">
       <a href="#about" class="hover:text-pink-400">About</a>
@@ -54,21 +54,79 @@
   </header>
 
   <!-- Hero -->
-  <section id="hero" class="relative h-[92vh] grid place-items-center text-center px-6 overflow-hidden">
-    <img src="assets/images/lobby.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-85 select-none pointer-events-none" style="filter: blur(5px);" draggable="false">
-    <div class="relative z-10">
-      <h1 class="bg-gradient-to-r from-[#ff3300] via-[#ff6600] via-[#ff9900] to-[#ffcc33] bg-clip-text text-transparent text-6xl md:text-8xl font-bold mb-4 [text-shadow:2px_2px_8px_rgba(255,100,0,.7)]">
-        SMASHED
-      </h1>
-      <p class="text-xl md:text-2xl text-purple-400 mb-2">The Drunkest Place in the Metaverse</p>
-      <p class="text-purple-400 text-lg md:text-xl">Trust the vibes. Drink responsibly.</p>
-      <div class="mt-6 flex gap-3 justify-center flex-wrap text-sm">
-        <a href="https://vrchat.com/home/launch?worldId=wrld_4e83f3d8-66b5-4d46-8039-49025ae939b3" class="px-4 py-2 rounded-lg border border-pink-500 text-white hover:bg-purple-500/20">Enter World</a>
-        <a href="https://discord.gg/gr4dhmz6kQ" class="px-4 py-2 rounded-lg border border-rose-400 text-rose-300 hover:bg-rose-400/10">Join Discord</a>
-        <a href="#patreon" class="px-4 py-2 rounded-lg border border-fuchsia-400 text-fuchsia-300 hover:bg-fuchsia-400/10">Support on Patreon</a>
+<section id="hero" aria-label="Welcome to Smashed" class="relative min-h-[92vh] grid place-items-center text-center px-6 overflow-hidden">
+  <!-- Backdrop -->
+  <img
+    src="assets/images/lobby.png"
+    alt=""
+    class="absolute inset-0 w-full h-full object-cover opacity-[0.85] select-none pointer-events-none"
+    style="filter: blur(6px) saturate(1.1) brightness(0.8);"
+    draggable="false"
+  />
+  <!-- Subtle gradient overlay for depth/readability -->
+  <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-purple-900/25 to-black/80"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl w-full">
+
+    <!-- Brand -->
+    <h1
+      class="text-5xl md:text-7xl lg:text-8xl font-extrabold leading-tight mb-4 bg-clip-text text-transparent"
+      style="background-image:linear-gradient(90deg,#7c3aed,#a78bfa); text-shadow: 0 6px 40px rgba(124,58,237,.35), 0 2px 12px rgba(0,0,0,.5);"
+    >
+      SMASHED
+    </h1>
+
+    <!-- Tagline -->
+    <p class="text-xl md:text-2xl text-violet-200/95 font-medium mb-2">
+      The best drinking spot this side of the metaverse
+    </p>
+    <p class="text-violet-200/80 text-base md:text-lg">
+      Come for the vibes, stay for the chaos — and please drink responsibly.
+    </p>
+
+    <!-- Glass card for CTAs -->
+    <div class="mt-7 mx-auto max-w-2xl rounded-2xl border border-white/10 bg-black/30 backdrop-blur-md p-4 shadow-[0_0_40px_rgba(124,58,237,.25)]">
+      <div class="flex gap-3 justify-center flex-wrap text-sm md:text-base">
+        <!-- Primary -->
+        <a
+          href="https://vrchat.com/home/launch?worldId=wrld_4e83f3d8-66b5-4d46-8039-49025ae939b3"
+          class="px-5 py-3 rounded-xl font-bold text-black bg-gradient-to-r from-violet-600 to-violet-300 hover:from-violet-500 hover:to-violet-200 transition-[filter,transform] duration-200 [filter:drop-shadow(0_8px_24px_rgba(124,58,237,.35))] hover:-translate-y-[1px]"
+        >
+          Enter World
+        </a>
+        <!-- Secondary -->
+        <a
+          href="https://discord.gg/gr4dhmz6kQ"
+          class="px-5 py-3 rounded-xl font-semibold text-violet-200 border border-violet-400/50 hover:bg-violet-500/10 transition-colors"
+        >
+          Join Discord
+        </a>
+        <a
+          href="#patreon"
+          class="px-5 py-3 rounded-xl font-semibold text-white-200 bg-gradient-to-r from-orange-600 to-orange-400 border border-violet-400/50 hover:bg-violet-500/10 transition-colors"
+        >
+          Support on Patreon
+        </a>
+      </div>
+
+      <!-- Little feature chips -->
+      <div class="mt-4 flex flex-wrap gap-2 justify-center text-[11px] md:text-xs">
+        <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-violet-200/90">VIP/VIP+ perks</span>
+        <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-violet-200/90">Daily unofficial instances</span>
+        <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-violet-200/90">Games</span>
+        <span class="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-violet-200/90">Weekly events</span>
       </div>
     </div>
-  </section>
+
+    <!-- Scroll cue -->
+    <a href="#about" class="mt-8 inline-flex items-center gap-2 text-violet-200/80 hover:text-violet-100 transition-colors">
+      <span class="text-xs tracking-wider uppercase">Explore more</span>
+      <span class="text-2xl leading-none">⌄</span>
+    </a>
+  </div>
+</section>
+
 
   <!-- About -->
   <section id="about" class="relative py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
