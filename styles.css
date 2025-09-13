@@ -129,3 +129,89 @@
 .live-toast .dot { width: .6rem; height: .6rem; border-radius: 9999px; background:#22c55e; box-shadow: 0 0 10px rgba(34,197,94,.9); animation: dotBlink 1s infinite; }
 .live-toast .txt { font-size: .9rem; }
 @keyframes toastIn { from { transform: translateY(-8px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* === VRCLINK (Purple palette) === */
+:root{
+  --vr-a: #7c3aed;        /* violet-600 (deep) */
+  --vr-b: #a78bfa;        /* violet-300 (light) */
+  --vr-muted: #c9bffd;    /* soft violet for body/lede */
+  --vr-link: #c4b5fd;     /* link */
+  --vr-link-hover: #ddd6fe;
+}
+
+/* Floating CTA */
+.vrclink-cta{position:fixed;right:1rem;bottom:1rem;z-index:9999;max-width:560px;width:calc(100vw - 2rem);background:rgba(16,16,24,.75);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1rem;box-shadow:0 10px 30px rgba(0,0,0,.45);display:flex;gap:.875rem;align-items:flex-start;transform:translateY(24px) scale(.98);opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .35s ease}
+.vrclink-cta.show{transform:none;opacity:1;pointer-events:auto}
+.vrclink-cta__icon{flex:0 0 42px;width:42px;height:42px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--vr-a),var(--vr-b));box-shadow:0 8px 22px rgba(124,58,237,.35)}
+.vrclink-cta__icon svg{width:22px;height:22px;fill:#fff}
+.vrclink-cta__body{min-width:0}
+.vrclink-cta__title{margin:.1rem 0;font-size:1rem;line-height:1.2}
+.vrclink-cta__subtitle{margin:.25rem 0 .6rem;color:var(--vr-muted);font-size:.9rem}
+.vrclink-actions{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.vrclink-btn{cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;border-radius:999px;border:0;padding:.65rem 1rem;font-weight:700;text-decoration:none}
+.vrclink-btn--primary{background:linear-gradient(90deg,var(--vr-a),var(--vr-b));color:#0b0b13}
+.vrclink-btn--ghost{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.12)}
+.vrclink-close{margin-left:auto;background:transparent;border:0;color:var(--vr-muted);cursor:pointer;padding:.25rem;border-radius:8px}
+.vrclink-close:hover{background:rgba(255,255,255,.07);color:#fff}
+
+/* Section — blurred lobby background (non-savable layer) */
+section#vrclink {
+  position: relative;
+  overflow: hidden; /* contains the blur edges */
+}
+section#vrclink::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("assets/images/lobby.png") center/cover no-repeat;
+  filter:blur(5px);
+  transform:scale(1.05);      /* avoid edge cutoff */
+  z-index:0;
+  pointer-events:none;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+/* Content layer */
+.vrclink-wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:4.5rem 1rem;background:rgba(0,0,0,.6);border-radius:16px}
+.vrclink-chip{display:inline-flex;align-items:center;gap:.5rem;font-weight:800;color:#0b0b13;padding:.38rem .65rem;border-radius:999px;background:linear-gradient(90deg,var(--vr-a),var(--vr-b))}
+.vrclink-h2{font-size:clamp(1.6rem,2.2vw+1rem,2.6rem);margin:.75rem 0 1rem;line-height:1.1;color:#fff}
+.vrclink-lede{color:var(--vr-muted);max-width:75ch}
+.vrclink-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.5rem}
+@media(min-width:960px){.vrclink-grid{grid-template-columns:7fr 5fr}}
+.vrclink-card{background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:1rem}
+.vrclink-list{list-style:none;margin:0;padding:0;display:grid;gap:.7rem;color:#fff}
+.vrclink-steps{list-style:none;margin:.25rem 0 0;padding:0;display:grid;gap:.5rem;color:#fff}
+.vrclink-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.vrclink-gallery img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10;border-radius:12px;border:1px solid rgba(255,255,255,.08);background:transparent}
+.vrclink-note{color:var(--vr-muted);font-size:.9rem;margin-top:.6rem}
+
+/* --- VRCLINK section text pop (purple) --- */
+
+
+
+/* Lede brighter with slight glow */
+#vrclink .vrclink-lede{
+  color:#eee7ff;
+  font-weight:500;
+  text-shadow:0 1px 12px rgba(0,0,0,.35);
+}
+
+/* Subheads with purple underline */
+#vrclink .vrclink-card h3{
+  color:#fff;font-weight:800;letter-spacing:.2px;position:relative;margin-bottom:.85rem;
+}
+#vrclink .vrclink-card h3::after{
+  content:"";position:absolute;left:0;bottom:-.35rem;width:72px;height:3px;border-radius:999px;
+  background:linear-gradient(90deg,var(--vr-a),var(--vr-b));opacity:.95;
+}
+
+/* Feature list highlights → purple gradient */
+#vrclink .vrclink-list strong{
+  background:linear-gradient(90deg,var(--vr-a),var(--vr-b));
+  -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;
+}
+
+/* Links → purple */
+#vrclink a{color:var(--vr-link);text-decoration:underline;text-underline-offset:3px}
+#vrclink a:hover{color:var(--vr-link-hover)}

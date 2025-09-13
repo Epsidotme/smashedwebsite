@@ -93,6 +93,56 @@
     </div>
   </section>
 
+  <!-- Vrclink -->
+<section id="vrclink" aria-label="VRCLINK in Smashed VIP+">
+<div class="vrclink-wrap">
+<span class="vrclink-chip">💎 <b>VRCLINK FOR VIP+</b></span>
+<h2 class="text-4xl font-bold mb-6">Run stronger groups with VRCLINK — included with VIP+</h2>
+<p class="vrclink-lede">VIP+ adds a complete group toolkit powered by VRCLINK, so you can manage your presence in‑world and on the web without extra plugins or hacks. It all works with your existing Smashed setup.</p>
+
+
+<div class="vrclink-grid">
+<article class="vrclink-card">
+<h3 style="margin-top:0">What you get</h3>
+<ul class="vrclink-list">
+<li><strong>Poster control</strong> — swap your group poster any time for instant updates.</li>
+<li><strong>Gallery takeovers</strong> — upload up to six images; they’re atlased and rotate on the community board.</li>
+<li><strong>Moderator power</strong> — up to ten moderators, with regular VIPs not counting toward the limit.</li>
+<li><strong>Reach insights</strong> — unique visitor stats to understand real impact.</li>
+<li><strong>Extra in‑world links</strong> — go beyond the default VRChat group page.</li>
+<li><strong>Custom group page</strong> — centralize info, rules, mods and all your links.</li>
+<li><strong>Tournaments</strong> — bracket system built in; live tournament world display is on the roadmap.</li>
+</ul>
+</article>
+
+
+<aside class="vrclink-card">
+<h3 style="margin-top:0">Getting started</h3>
+<ol class="vrclink-steps">
+<li>Go to <a href="https://vrclink.com/" target="_blank" rel="nofollow noopener">vrclink.com</a>.</li>
+<li>Connect with Patreon to unlock your VIP+ perks.</li>
+<li>Set up your group visuals, links and moderators.</li>
+<li>In‑world: open your portable menu → <em>Group Host</em> to enable the group you moderate (one active at a time).</li>
+</ol>
+<p class="vrclink-note">We’re continuing to expand VIP+ features — feedback welcome.</p>
+</aside>
+</div>
+
+
+<div class="vrclink-card" style="margin-top:1rem">
+<h3 style="margin-top:0">Preview</h3>
+<div class="vrclink-gallery" aria-label="VRCLINK screenshots">
+<img src="assets/images/vrclink/preview.png" alt="VRCLINK group preview" loading="lazy" />
+<img src="assets/images/vrclink/main.png" alt="VRCLINK main dashboard" loading="lazy" />
+<img src="assets/images/vrclink/stats.png" alt="VRCLINK stats overview" loading="lazy" />
+<img src="assets/images/vrclink/ingame.png" alt="VRCLINK in‑game group information board" loading="lazy" />
+<img src="assets/images/vrclink/bracket.png" alt="VRCLINK tournament brackets" loading="lazy" />
+</div>
+<p style="margin:.75rem 0 0"><a class="vrclink-btn vrclink-btn--primary btn button" href="https://vrclink.com/" target="_blank" rel="nofollow noopener">Try VRCLINK →</a></p>
+</div>
+</div>
+</section>
+
   <!-- Explore -->
   <section id="explore" class="relative py-20 px-6 md:px-12 lg:px-20 overflow-hidden">
     <img src="assets/images/lobby.png" alt="" class="absolute inset-0 w-full h-full object-cover opacity-85 select-none pointer-events-none" style="filter: blur(5px);" draggable="false">
@@ -372,7 +422,7 @@
     </div>
     <div class="absolute bottom-3 right-4 flex items-center gap-2 text-m text-gray-400 opacity-80 hover:opacity-100">
       <span>Powered by 
-        <a href="https://zentaka.com" target="_blank" rel="noopener" class="font-semibold hover:text-pink-400">Zentaka Corp</a>
+        <a href="https://zentaka.com" target="_blank" rel="noopener" class="font-semibold hover:text-purple-400">Zentaka Corp</a>
       </span>
       <img src="assets/logos/zentaka.png" alt="Zentaka" class="no-modal w-5 h-5 select-none">
     </div>
@@ -388,6 +438,23 @@
       <div id="img-modal-caption" class="text-center text-gray-300 text-sm"></div>
     </div>
   </div>
+  
+  <aside class="vrclink-cta" id="vrclink-cta" role="dialog" aria-labelledby="vrclink-cta-title" aria-describedby="vrclink-cta-desc" aria-modal="false">
+    <div class="vrclink-cta__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.2 5.6L20 10l-5.6 2.2L12 18l-2.2-5.8L4 10l5.8-2.4L12 2z"/></svg>
+    </div>
+    <div class="vrclink-cta__body">
+      <h2 class="vrclink-cta__title" id="vrclink-cta-title">New: VRCLINK group tools for VIP+</h2>
+      <p class="vrclink-cta__subtitle" id="vrclink-cta-desc">Manage posters, photos, mods, stats & more. See what’s new ↓</p>
+      <div class="vrclink-actions">
+        <a href="#vrclink" class="vrclink-btn vrclink-btn--primary btn button" id="vrclink-cta-open" aria-controls="vrclink">Explore features</a>
+        <a class="vrclink-btn vrclink-btn--ghost btn button" href="https://vrclink.com/" target="_blank" rel="nofollow noopener">Open vrclink.com</a>
+      </div>
+    </div>
+	<button class="vrclink-close" id="vrclink-cta-close" aria-label="Dismiss announcement">
+      <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.3 5.7a1 1 0 0 0-1.4-1.4L12 9.17 7.1 4.3a1 1 0 0 0-1.4 1.4L10.83 12l-5.13 4.9a1 1 0 1 0 1.4 1.45L12 14.83l4.9 4.9a1 1 0 1 0 1.4-1.45L13.17 12l5.13-4.9Z"/></svg>
+    </button>
+  </aside>
   
 <div id="live-toast-root" aria-live="polite"></div>
 

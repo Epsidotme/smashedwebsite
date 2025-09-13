@@ -368,3 +368,22 @@ document.getElementById('img-modal-image')
     });
   })();
 })();
+
+/* ===========================
+   Vrclink.com popup + scroll to section
+=========================== */
+(() => {
+// === VRCLINK CTA (ES5-safe, always shows) ===
+(function () {
+  var cta     = document.getElementById('vrclink-cta');
+  var openBtn = document.getElementById('vrclink-cta-open');
+  var closeBtn= document.getElementById('vrclink-cta-close');
+
+  function show() { if (cta && cta.classList) cta.classList.add('show'); }
+  function hide() { if (cta && cta.classList) cta.classList.remove('show'); }
+
+  if (cta) { setTimeout(show, 450); }       // show every load (no 14-day hide)
+  if (openBtn)  openBtn.addEventListener('click', function () { hide(); });
+  if (closeBtn) closeBtn.addEventListener('click', function () { hide(); });
+})();
+})();
