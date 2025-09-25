@@ -132,11 +132,11 @@
 
 /* === VRCLINK (Purple palette) === */
 :root{
-  --vr-a: #7c3aed;        /* violet-600 (deep) */
-  --vr-b: #a78bfa;        /* violet-300 (light) */
-  --vr-muted: #c9bffd;    /* soft violet for body/lede */
-  --vr-link: #c4b5fd;     /* link */
-  --vr-link-hover: #ddd6fe;
+  --vr-a: #dc2626;        /* red-600 (deep) */
+  --vr-b: #facc15;        /* yellow-300 (light) */
+  --vr-muted: #9ca3af;    /* gray-400 for body/lede */
+  --vr-link: #fff;     /* red-500 for links */
+  --vr-link-hover: #c0c0c0; /* yellow-200 for hover */
 }
 
 /* Floating CTA */
@@ -174,7 +174,16 @@ section#vrclink::before {
 
 /* Content layer */
 .vrclink-wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:4.5rem 1rem;background:rgba(0,0,0,.6);border-radius:16px}
-.vrclink-chip{display:inline-flex;align-items:center;gap:.5rem;font-weight:800;color:#0b0b13;padding:.38rem .65rem;border-radius:999px;background:linear-gradient(90deg,var(--vr-a),var(--vr-b))}
+.vrclink-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-weight: 800;
+  color: #0b0b13;
+  padding: .38rem .65rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #dc2626, #facc15); /* from-red-600 → to-yellow-300 */
+}
 .vrclink-h2{font-size:clamp(1.6rem,2.2vw+1rem,2.6rem);margin:.75rem 0 1rem;line-height:1.1;color:#fff}
 .vrclink-lede{color:var(--vr-muted);max-width:75ch}
 .vrclink-grid{display:grid;grid-template-columns:1fr;gap:1rem;margin-top:1.5rem}
@@ -207,10 +216,14 @@ section#vrclink::before {
 }
 
 /* Feature list highlights → purple gradient */
-#vrclink .vrclink-list strong{
-  background:linear-gradient(90deg,var(--vr-a),var(--vr-b));
-  -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:800;
+#vrclink .vrclink-list strong {
+  background: linear-gradient(90deg, #dc2626, #facc15); /* red-600 → yellow-300 */
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
 }
+
 
 /* Links → purple */
 #vrclink a{color:var(--vr-link);text-decoration:underline;text-underline-offset:3px}
